@@ -1,0 +1,30 @@
+<div class="center jumbotron">
+<h1>Welcome to the ReplyCoPilot</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @responses.each do |response| %>
+    <tr>
+      <td><%= response.customer_name %></td>
+      <td><%= response.customer_email %></td>
+      <td><%= response.website %></td>
+      <td><%= response.opt_in %></td>
+      <td><%= response.review_quality %></td>
+      <td><%= link_to 'Show', response_path(response) %></td>
+      <td><%= link_to 'New', new_response_path(response) %></td>
+      <td><%= link_to 'Edit', edit_response_path(response) %></td>
+      <td><%= link_to 'Destroy', response_path(response),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+

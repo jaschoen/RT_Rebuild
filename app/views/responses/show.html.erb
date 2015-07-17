@@ -1,0 +1,56 @@
+<h1>Responses#show</h1>
+
+<p>
+  <strong>Customer Name</strong>
+  <%= @response.customer_name %>
+</p>
+ 
+<p>
+  <strong>Customer Email</strong>
+  <%= @response.customer_email %>
+</p>
+
+<p>
+  <strong>Website</strong>
+  <%= @response.website %>
+</p>
+
+<p>
+  <strong>Opt In?</strong>
+  <%= @response.opt_in %>
+</p>
+
+<p>
+  <strong>Review Quality</strong>
+  <%= @response.review_quality %>
+</p>
+
+<p><br>
+
+<% if @response.review_quality == "positive" %>
+    <% if @response.website == "twitter" %>
+        <%= @response.twitter_positive %>
+    <% elsif @response.website == "trip advisor" %>
+        <%= @response.ta_positive %>
+    <% else %>
+        <%= @response.fyg_positive %>
+    <% end %>
+<% elsif @response.review_quality == "neutral" %>
+    <% if @response.website == "twitter" %>
+        <%= @response.twitter_neutral %>
+    <% elsif @response.website == "trip advisor" %>
+        <%= @response.ta_neutral %>
+    <% else %>
+        <%= @response.fyg_neutral %>
+    <% end %>
+<% elsif @response.review_quality == "negative" %>
+    <% if @response.website == "twitter" %>
+        <%= @response.twitter_negative %>
+    <% elsif @response.website == "trip advisor" %>
+        <%= @response.ta_negative %>
+    <% else %>
+        <%= @response.fyg_negative %>
+    <% end %>
+<% end %>
+
+</p>
